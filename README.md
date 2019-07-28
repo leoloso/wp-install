@@ -1,6 +1,6 @@
-# Install WordPress through Composer
+# Install WordPress through Composer and WP-CLI
 
-Quickly launch a WordPress instance through Composer
+Quickly launch a WordPress instance through Composer and WP-CLI
 
 ## Install
 
