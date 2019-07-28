@@ -29,6 +29,8 @@ export ADMIN_EMAIL={ADMIN_EMAIL} #eg: pedro@example.com
 wget -O - https://raw.githubusercontent.com/leoloso/wp-install/master/install.sh | bash
 ```
 
+(Or copy/paste the contents of [install.sh](https://github.com/leoloso/wp-install/blob/master/install.sh) in the terminal, eg: for Windows users)
+
 4. Wait for a few minutes ☕️😁
 5. Check that WordPress was successfully installed:
     - WordPress site: {YOUR_SITE_URL_WITH_HTTP}
