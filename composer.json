@@ -1,0 +1,51 @@
+{
+    "name": "leoloso/wp-install",
+    "type": "project",
+    "description": "Install WordPress through Composer",
+    "keywords": [
+        "WordPress",
+        "bootstrap",
+        "Composer"
+    ],
+    "homepage": "https://github.com/leoloso/wp-install",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Leonardo Losoviz",
+            "email": "leo@getpop.org",
+            "homepage": "https://getpop.org"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "php": "~7.1",
+        "johnpbloch/wordpress": ">=5.2"
+    },
+    "extra": {
+        "wordpress-install-dir": "wp",
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        },
+        "installer-paths": {
+            "wp/wp-content/mu-plugins/{$name}/": [
+                "type:wordpress-muplugin"
+            ],
+            "wp/wp-content/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "wp/wp-content/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
