@@ -1,7 +1,7 @@
 {
     "name": "leoloso/wp-install",
     "type": "project",
-    "description": "Install WordPress through Composer and WP-CLI",
+    "description": "Quickly install WordPress through Composer and WP-CLI",
     "keywords": [
         "WordPress",
         "bootstrap",
