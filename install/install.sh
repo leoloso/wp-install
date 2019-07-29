@@ -1,9 +1,18 @@
 #!/bin/bash
 
+# Solution to adding colors: https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+ORANGE='\033[0;33m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
 # Install WordPress through Composer:
 echo "Downloading and installing WordPress through Composer..."
-echo "(this may take a few minutes)"
+echo -e "${YELLOW}(this may take a few minutes)${NC}"
 composer create-project leoloso/wp-install $FOLDER_NAME dev-master
+
+# Install the must-use plugins:
 cd $FOLDER_NAME
 composer install
 
@@ -31,19 +40,20 @@ if ! $(wp core is-installed); then
 
     # Check if the installation was successful. If not, show an error message
     if ! $(wp core is-installed); then
-        echo "❌ Installation unsuccessful. Please check the error messages displayed in the console to solve the issue, and then try again."
-        echo "If you need help, please copy the console output and send it to Leo by email (leo@getpop.org), and he will try to help."
+        echo -e "❌ ${RED}Installation unsuccessful.${NC} Please check the error messages displayed in the console to solve the issue, and then try again."
+        echo -e "If you need help, please copy the console output and send it to Leo by email (${ORANGE}leo@getpop.org${NC}), and he will try to help."
         exit 1;
     fi
 else
-    echo "✅ WordPress is already installed!"
+    echo -e "✅ ${GREEN}WordPress is already installed!${NC}"
     exit 0;
 fi
 
-echo "✅ Installation successful! Please check that the following URLs work fine:"
+echo
+echo -e "✅ ${GREEN}Installation successful!${NC} Please check that the following URLs work fine:"
 echo "############################################"
-echo "🍎 WordPress site: $SITE_URL_WITH_HTTP"
-echo "🍎 WordPress admin: $SITE_URL_WITH_HTTP/wp/wp-admin/"
+echo -e "🍎 WordPress site: ${ORANGE}$SITE_URL_WITH_HTTP${NC}"
+echo -e "🍎 WordPress admin: ${ORANGE}$SITE_URL_WITH_HTTP/wp/wp-admin/${NC}"
 echo "############################################"
 echo
 echo "Bye 👋 , happy using WordPress!"
