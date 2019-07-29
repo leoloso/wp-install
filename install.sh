@@ -8,10 +8,10 @@ composer install
 
 ## Check if WordPress is installed. If not, install it
 echo "Checking if WordPress is installed: "
+echo 
 if ! $(wp core is-installed); then
 
-    echo "WordPress is not installed yet"
-    echo "Installing WordPress through WP-CLI..."
+    echo "WordPress is not installed yet. Installing WordPress through WP-CLI..."
     
     # Configure wp-config.php through WP-CLI: (reference: https://developer.wordpress.org/cli/commands/config/set/)
     wp config set DB_NAME $DB_NAME #eg: database
@@ -27,15 +27,23 @@ if ! $(wp core is-installed); then
 
     # Update the site URL, adding "/wp"
     wp option update siteurl $SITE_URL_WITH_HTTP/wp
+
+    # Check if the installation was successful. If not, show an error message
+    if ! $(wp core is-installed); then
+        echo "⚠️Installation unsuccessful. Please check the error messages displayed in the console to solve the issue, and then try again."
+        echo "If you need help, please copy the console output and send it to Leo by email (leo@getpop.org), and he will try to help."
+        exit 1;
+    fi
 else
-    echo "WordPress is already installed!"
+    echo "✅WordPress is already installed!"
+    exit 0;
 fi
 
-echo
-echo "All should be set now! Please check that these URLs work fine:"
+echo "✅Installation successful! Please check that the following URLs work fine:"
 echo "############################################"
-echo "# WordPress site: $SITE_URL_WITH_HTTP"
-echo "# WordPress admin: $SITE_URL_WITH_HTTP/wp/wp-admin/"
+echo "🍎WordPress site: $SITE_URL_WITH_HTTP"
+echo "🍎WordPress admin: $SITE_URL_WITH_HTTP/wp/wp-admin/"
 echo "############################################"
 echo
 echo "Bye 👋, happy using WordPress!"
+exit 0;
