@@ -31,20 +31,20 @@ if ! $(wp core is-installed); then
 
     # Check if the installation was successful. If not, show an error message
     if ! $(wp core is-installed); then
-        echo "⚠️Installation unsuccessful. Please check the error messages displayed in the console to solve the issue, and then try again."
+        echo "❌ Installation unsuccessful. Please check the error messages displayed in the console to solve the issue, and then try again."
         echo "If you need help, please copy the console output and send it to Leo by email (leo@getpop.org), and he will try to help."
         exit 1;
     fi
 else
-    echo "✅WordPress is already installed!"
+    echo "✅ WordPress is already installed!"
     exit 0;
 fi
 
-echo "✅Installation successful! Please check that the following URLs work fine:"
+echo "✅ Installation successful! Please check that the following URLs work fine:"
 echo "############################################"
-echo "🍎WordPress site: $SITE_URL_WITH_HTTP"
-echo "🍎WordPress admin: $SITE_URL_WITH_HTTP/wp/wp-admin/"
+echo "🍎 WordPress site: $SITE_URL_WITH_HTTP"
+echo "🍎 WordPress admin: $SITE_URL_WITH_HTTP/wp/wp-admin/"
 echo "############################################"
 echo
-echo "Bye 👋, happy using WordPress!"
+echo "Bye 👋 , happy using WordPress!"
 exit 0;
