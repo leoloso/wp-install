@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Install WordPress through Composer:
-echo "Downloading and installing WordPress through Composer... (this may take a few minutes)"
+echo "Downloading and installing WordPress through Composer..."
+echo "(this may take a few minutes)"
 composer create-project leoloso/wp-install $FOLDER_NAME dev-master
 cd $FOLDER_NAME
 composer install
