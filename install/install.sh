@@ -19,6 +19,12 @@ composer create-project leoloso/wp-install $FOLDER_NAME dev-master
 cd $FOLDER_NAME
 composer install
 
+# Configure wp-config.php through WP-CLI: (reference: https://developer.wordpress.org/cli/commands/config/set/)
+wp config set DB_NAME $DB_NAME #eg: database
+wp config set DB_USER $DB_USER #eg: admin
+wp config set DB_PASSWORD $DB_PASSWORD #eg: sADF!kl9diq@#Sjfk
+wp config set DB_HOST $DB_HOST #eg: 127.0.0.1
+
 ## Check if WordPress is installed. If not, install it
 echo "Checking if WordPress is installed: "
 echo 
@@ -26,12 +32,6 @@ if ! $(wp core is-installed); then
 
     echo "WordPress is not installed yet. Installing WordPress through WP-CLI..."
     
-    # Configure wp-config.php through WP-CLI: (reference: https://developer.wordpress.org/cli/commands/config/set/)
-    wp config set DB_NAME $DB_NAME #eg: database
-    wp config set DB_USER $DB_USER #eg: admin
-    wp config set DB_PASSWORD $DB_PASSWORD #eg: sADF!kl9diq@#Sjfk
-    wp config set DB_HOST $DB_HOST #eg: 127.0.0.1
-
     # Generate random SALT keys through WP-CLI: (reference: https://developer.wordpress.org/cli/commands/config/shuffle-salts/)
     wp config shuffle-salts
 
@@ -47,17 +47,17 @@ if ! $(wp core is-installed); then
         echo -e "If you need help, please copy the console output and send it to Leo by email (${ORANGE}leo@getpop.org${NC}), and he will try to help."
         exit 1;
     fi
+
+    echo -e "✅ ${GREEN}Installation successful!${NC} Please check that the following URLs work fine:"
+    echo "############################################"
+    echo -e "🍎 WordPress site: ${ORANGE}${UNDERLINE}$SITE_URL_WITH_HTTP${NOUNDERLINE}${NC}"
+    echo -e "🍎 WordPress admin: ${ORANGE}${UNDERLINE}$SITE_URL_WITH_HTTP/wp/wp-admin/${NOUNDERLINE}${NC}"
+    echo "############################################"
 else
     echo -e "✅ ${GREEN}WordPress is already installed!${NC}"
-    exit 0;
 fi
-
 echo
-echo -e "✅ ${GREEN}Installation successful!${NC} Please check that the following URLs work fine:"
-echo "############################################"
-echo -e "🍎 WordPress site: ${ORANGE}${UNDERLINE}$SITE_URL_WITH_HTTP${NOUNDERLINE}${NC}"
-echo -e "🍎 WordPress admin: ${ORANGE}${UNDERLINE}$SITE_URL_WITH_HTTP/wp/wp-admin/${NOUNDERLINE}${NC}"
-echo "############################################"
-echo
+echo "If you like PoP, please consider giving the project a star in GitHub 😀 ❤️"
+echo -e "👉🏽 ${ORANGE}${UNDERLINE}https://github.com/leoloso/PoP${NOUNDERLINE}${NC}"
 echo "Bye 👋 , happy using WordPress!"
 exit 0;
