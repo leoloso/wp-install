@@ -51,6 +51,9 @@ if ! $(wp core is-installed); then
     # Install WordPress: (reference: https://developer.wordpress.org/cli/commands/core/install/)
     wp core install --url=$SITE_URL_WITHOUT_HTTP --title="$SITE_NAME" --admin_user=$ADMIN_USER --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL
 
+    # To make sure it contains https
+    wp option update home $SITE_URL_WITH_HTTP
+
     # Update the site URL, adding "/wp"
     wp option update siteurl $SITE_URL_WITH_HTTP/wp
 
