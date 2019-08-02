@@ -27,9 +27,10 @@ wp config set DB_HOST $DB_HOST #eg: 127.0.0.1
 
 # SALT keys
 if [ -n "$SHUFFLE_SALT_KEYS" ]
+then
     # Shuffle them (reference: https://developer.wordpress.org/cli/commands/config/shuffle-salts/)
     wp config shuffle-salts
-then
+else
     # Set them through environment variables
     wp config set AUTH_KEY $AUTH_KEY
     wp config set SECURE_AUTH_KEY $SECURE_AUTH_KEY
