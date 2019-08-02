@@ -25,6 +25,22 @@ wp config set DB_USER $DB_USER #eg: admin
 wp config set DB_PASSWORD $DB_PASSWORD #eg: sADF!kl9diq@#Sjfk
 wp config set DB_HOST $DB_HOST #eg: 127.0.0.1
 
+# SALT keys
+if [ -n "$SHUFFLE_SALT_KEYS" ]
+    # Shuffle them (reference: https://developer.wordpress.org/cli/commands/config/shuffle-salts/)
+    wp config shuffle-salts
+then
+    # Set them through environment variables
+    wp config set AUTH_KEY $AUTH_KEY
+    wp config set SECURE_AUTH_KEY $SECURE_AUTH_KEY
+    wp config set LOGGED_IN_KEY $LOGGED_IN_KEY
+    wp config set NONCE_KEY $NONCE_KEY
+    wp config set AUTH_SALT $AUTH_SALT
+    wp config set SECURE_AUTH_SALT $SECURE_AUTH_SALT
+    wp config set LOGGED_IN_SALT $LOGGED_IN_SALT
+    wp config set NONCE_SALT $NONCE_SALT
+fi
+
 ## Check if WordPress is installed. If not, install it
 echo "Checking if WordPress is installed: "
 echo 
@@ -32,9 +48,6 @@ if ! $(wp core is-installed); then
 
     echo "WordPress is not installed yet. Installing WordPress through WP-CLI..."
     
-    # Generate random SALT keys through WP-CLI: (reference: https://developer.wordpress.org/cli/commands/config/shuffle-salts/)
-    wp config shuffle-salts
-
     # Install WordPress: (reference: https://developer.wordpress.org/cli/commands/core/install/)
     wp core install --url=$SITE_URL_WITHOUT_HTTP --title="$SITE_NAME" --admin_user=$ADMIN_USER --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL
 
