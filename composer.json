@@ -49,8 +49,10 @@
         "sort-packages": true
     },
     "scripts": {
+        "pre-install-cmd": [
+            "echo -e \"Downloading and installing WordPress through Composer (this may take a few minutes...)\""
+        ],
         "post-create-project-cmd": [
-            "echo -e \"Downloading and installing WordPress through Composer... (this may take a few minutes)\"",
             "./install/set-wp-config.sh",
             "./install/maybe-install-wp.sh"
         ]
