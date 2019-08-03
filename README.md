@@ -55,8 +55,8 @@ composer create-project leoloso/wp-install
 4. Wait for a few minutes ☕️😁
 5. ✅ The site is installed under:
 
-    - 👉WordPress site: {YOUR_SITE_URL_WITH_HTTP}
-    - 👉WordPress admin: {YOUR_SITE_URL_WITH_HTTP}/wp/wp-admin/
+    - 👉WordPress site: `{YOUR_SITE_URL_WITH_HTTP}`
+    - 👉WordPress admin: `{YOUR_SITE_URL_WITH_HTTP}/wp/wp-admin/`
 
 ## Credits
 
