@@ -50,7 +50,8 @@
     },
     "scripts": {
         "post-root-package-install": [
-            "bash -x './install/install.sh'"
+            "./install/set-wp-config.sh",
+            "./install/maybe-install-wp.sh"
         ]
     }
 }
