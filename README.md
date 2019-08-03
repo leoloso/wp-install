@@ -53,9 +53,10 @@ composer create-project leoloso/wp-install
 ```
 
 4. Wait for a few minutes ☕️😁
-5. Check that WordPress was successfully installed:
-    - WordPress site: {YOUR_SITE_URL_WITH_HTTP}
-    - WordPress admin: {YOUR_SITE_URL_WITH_HTTP}/wp/wp-admin/
+5. ✅ Check that WordPress was successfully installed:
+
+    - 👉WordPress site: {YOUR_SITE_URL_WITH_HTTP}
+    - 👉WordPress admin: {YOUR_SITE_URL_WITH_HTTP}/wp/wp-admin/
 
 ## Credits
 
@@ -65,4 +66,4 @@ composer create-project leoloso/wp-install
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[link-author]: https://github.com/leoloso
+[link-author]: https://getpop.org
