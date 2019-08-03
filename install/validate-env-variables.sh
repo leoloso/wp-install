@@ -50,7 +50,7 @@ then
     GREEN='\033[0;32m'
     NC='\033[0m' # No Color
 
-    echo -e "${RED}Fatal error:${NC} The following environment constant(s) cannot be empty: ${GREEN}$ERROR_ENV_VARS${NC}"
+    echo -e "${RED}Fatal error:${NC} The following environment variable(s) cannot be empty: ${GREEN}$ERROR_ENV_VARS${NC}"
     echo "Terminating process."
     exit 1
 fi
