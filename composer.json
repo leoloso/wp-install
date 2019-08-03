@@ -49,7 +49,7 @@
         "sort-packages": true
     },
     "scripts": {
-        "post-root-package-install": [
+        "post-create-project-cmd": [
             "./install/set-wp-config.sh",
             "./install/maybe-install-wp.sh"
         ]
