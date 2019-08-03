@@ -6,8 +6,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 # Install WordPress through Composer:
-echo "Downloading and installing WordPress through Composer..."
-echo -e "${YELLOW}(this may take a few minutes)${NC}"
+echo -e "Downloading and installing WordPress through Composer... ${YELLOW}(this may take a few minutes)${NC}"
 composer create-project leoloso/wp-install $FOLDER_NAME dev-master
 
 # Install the must-use plugins:
