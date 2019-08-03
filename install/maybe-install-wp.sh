@@ -11,7 +11,6 @@ NOUNDERLINE=`tput rmul`
 
 ## Check if WordPress is installed. If not, install it
 echo "Checking if WordPress is installed: "
-echo
 if ! $(wp core is-installed); then
 
     echo "WordPress is not installed yet. Installing WordPress through WP-CLI..."
