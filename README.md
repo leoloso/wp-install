@@ -49,9 +49,6 @@ export NONCE_SALT={YOUR_NONCE_SALT}
 ```bash
 composer create-project leoloso/wp-install
 ```
-<!--
-(Or copy/paste the contents of [install.sh](https://github.com/leoloso/wp-install/blob/master/install/install.sh) in the terminal, eg: for Windows users)
--->
 
 4. Wait for a few minutes ☕️😁
 5. Check that WordPress was successfully installed:
