@@ -50,8 +50,7 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "./install/set-wp-config.sh",
-            "./install/maybe-install-wp.sh"
+            "./install/install.sh"
         ]
     }
 }
