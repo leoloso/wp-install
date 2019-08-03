@@ -47,5 +47,10 @@
     },
     "config": {
         "sort-packages": true
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "bash -x './install/install.sh'"
+        ]
     }
 }

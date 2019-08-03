@@ -52,10 +52,10 @@ export LOGGED_IN_SALT={YOUR_LOGGED_IN_SALT}
 export NONCE_SALT={YOUR_NONCE_SALT}
 ```
 
-3. In the terminal, `cd` to the folder where to install the site, and execute script:
+3. Bootstrap a new project from this repo:
 
 ```bash
-wget -O - https://raw.githubusercontent.com/leoloso/wp-install/master/install/install.sh | bash
+composer create-project leoloso/wp-install
 ```
 
 (Or copy/paste the contents of [install.sh](https://github.com/leoloso/wp-install/blob/master/install/install.sh) in the terminal, eg: for Windows users)
