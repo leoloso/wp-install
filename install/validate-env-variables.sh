@@ -1,54 +1,56 @@
 #!/bin/bash
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-NC='\033[0m' # No Color
+# Flag to know if there are errors
+ERROR_ENV_VARS=""
 
 # Required for wp-config.php
-if [ -z $DB_NAME ]
+if [ -z "$DB_NAME" ]
 then
-    echo -e "${RED}Fatal error:${NC} Environment constant \"${GREEN}DB_NAME${NC}\" cannot be empty. Terminating process."
-    exit 1
+    ERROR_ENV_VARS="$ERROR_ENV_VARS\nDB_NAME"
 fi
-if [ -z $DB_USER ]
+if [ -z "$DB_USER" ]
 then
-    echo -e "${RED}Fatal error:${NC} Environment constant \"${GREEN}DB_USER${NC}\" cannot be empty. Terminating process."
-    exit 1
+    ERROR_ENV_VARS="$ERROR_ENV_VARS\nDB_USER"
 fi
-if [ -z $DB_PASSWORD ]
+if [ -z "$DB_PASSWORD" ]
 then
-    echo -e "${RED}Fatal error:${NC} Environment constant \"${GREEN}DB_PASSWORD${NC}\" cannot be empty. Terminating process."
-    exit 1
+    ERROR_ENV_VARS="$ERROR_ENV_VARS\nDB_PASSWORD"
 fi
 
 # Required for installing WordPress through WP-CLI
-if [ -z $SITE_URL_WITHOUT_HTTP ]
+if [ -z "$SITE_URL_WITHOUT_HTTP" ]
 then
-    echo -e "${RED}Fatal error:${NC} Environment constant \"${GREEN}SITE_URL_WITHOUT_HTTP${NC}\" cannot be empty. Terminating process."
-    exit 1
+    ERROR_ENV_VARS="$ERROR_ENV_VARS\nSITE_URL_WITHOUT_HTTP"
 fi
-if [ -z $SITE_URL_WITH_HTTP ]
+if [ -z "$SITE_URL_WITH_HTTP" ]
 then
-    echo -e "${RED}Fatal error:${NC} Environment constant \"${GREEN}SITE_URL_WITH_HTTP${NC}\" cannot be empty. Terminating process."
-    exit 1
+    ERROR_ENV_VARS="$ERROR_ENV_VARS\nSITE_URL_WITH_HTTP"
 fi
-if [ -z $SITE_NAME ]
+if [ -z "$SITE_NAME" ]
 then
-    echo -e "${RED}Fatal error:${NC} Environment constant \"${GREEN}SITE_NAME${NC}\" cannot be empty. Terminating process."
-    exit 1
+    ERROR_ENV_VARS="$ERROR_ENV_VARS\nSITE_NAME"
 fi
-if [ -z $ADMIN_USER ]
+if [ -z "$ADMIN_USER" ]
 then
-    echo -e "${RED}Fatal error:${NC} Environment constant \"${GREEN}ADMIN_USER${NC}\" cannot be empty. Terminating process."
-    exit 1
+    ERROR_ENV_VARS="$ERROR_ENV_VARS\nADMIN_USER"
 fi
-if [ -z $ADMIN_PASSWORD ]
+if [ -z "$ADMIN_PASSWORD" ]
 then
-    echo -e "${RED}Fatal error:${NC} Environment constant \"${GREEN}ADMIN_PASSWORD${NC}\" cannot be empty. Terminating process."
-    exit 1
+    ERROR_ENV_VARS="$ERROR_ENV_VARS\nADMIN_PASSWORD"
 fi
-if [ -z $ADMIN_EMAIL ]
+if [ -z "$ADMIN_EMAIL" ]
 then
-    echo -e "${RED}Fatal error:${NC} Environment constant \"${GREEN}ADMIN_EMAIL${NC}\" cannot be empty. Terminating process."
+    ERROR_ENV_VARS="$ERROR_ENV_VARS\nADMIN_EMAIL"
+fi
+
+# If there are errors, return an error state
+if [ -n "$ERROR_ENV_VARS" ]
+then
+    RED='\033[0;31m'
+    GREEN='\033[0;32m'
+    NC='\033[0m' # No Color
+
+    echo -e "${RED}Fatal error:${NC} The following environment constant(s) cannot be empty: ${GREEN}$ERROR_ENV_VARS${NC}"
+    echo "Terminating process."
     exit 1
 fi
