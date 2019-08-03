@@ -4,10 +4,12 @@ Quickly launch a WordPress instance through Composer and WP-CLI
 
 ## Install
 
-Via [Composer](https://getcomposer.org) and [WP-CLI](https://wp-cli.org/):
+Via [Composer](https://getcomposer.org) and [WP-CLI](https://wp-cli.org/) (both are assumed to be installed globally):
 
 1. Create the [WordPress database and user](https://wordpress.org/support/article/how-to-install-wordpress/#step-2-create-the-database-and-a-user)
-2. Set environment variables to configure WordPress (`wp-config.php` file): Copy the code below to an editor, replace all values (such as `{YOUR_SITE_DB_NAME}`) with your own values, and then paste it on the terminal to execute.
+2. Configure WordPress through environment variables: 
+
+> Copy the code below to an editor, replace all values (such as `{YOUR_SITE_DB_NAME}`) with your own values, and then either paste it on the terminal to execute, or save it in file "~/.bash_profile" and then execute `source ~/.bash_profile`.
 
 ```bash
 export DB_NAME={YOUR_SITE_DB_NAME} #eg: database
