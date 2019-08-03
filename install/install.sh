@@ -7,7 +7,7 @@ NC='\033[0m' # No Color
 
 # Install WordPress through Composer:
 echo -e "Downloading and installing WordPress through Composer... ${YELLOW}(this may take a few minutes)${NC}"
-composer create-project leoloso/wp-install $FOLDER_NAME dev-master
+composer create-project leoloso/wp-install $FOLDER_NAME
 
 cd $FOLDER_NAME
 
