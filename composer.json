@@ -49,6 +49,9 @@
         "sort-packages": true
     },
     "scripts": {
+        "post-root-package-install": [
+            "./install/validate-env-variables.sh"
+        ],
         "post-create-project-cmd": [
             "./install/install.sh"
         ]
